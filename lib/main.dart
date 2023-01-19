@@ -1,25 +1,209 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 void main() {
-  runApp(Myapp());
+  runApp(StackWidget());
 }
- class Myapp extends StatelessWidget{
+
+
+class StackWidget extends StatelessWidget{
   @override
-   Widget build(BuildContext context){        // 위젯을 반환하고 build 이름의 매개변수의 형은 BuildContext이다
+  Widget build(BuildContext context){
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:Scaffold(
-        body:SafeArea(
-          top: true,
-          bottom: true,
-          left: true,
-          right: true,
-          child:Container(
-            color:Colors.red,
-            height:300,
-            width:300
-      )
+      home: Scaffold(
+        body: SizedBox(
+            child: Stack(
+
+             children: [
+                     Container(
+                        color: Colors.brown,
+                        height: 300,
+                        width: 300,
+
+                    ),
+                    Container(
+                      color: Colors.deepPurple,
+                      height: 290,
+                      width: 290,
+                      child:Center(
+                        child: Text('HI'),
+
+
+                      ),
+                  ),
+             ],
+
+        ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+// class FlexibleWidget extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: SizedBox(
+//          child: Column(
+//            children: [
+//            Flexible(
+//                     flex: 6,
+//                     child:  Container(
+//                       color: Colors.brown,
+//                   ),
+//                   ),
+//           Flexible(
+//                   flex: 2,
+//                   child:  Container(
+//
+//                     color: Colors.deepPurple,
+//                 ),
+//                 ),
+//            ],
+//          ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class ColumnWidget extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: SizedBox(
+//           width: double.infinity,
+//           child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                   Flexible(
+//                     flex: 2,
+//                     child:  Container(
+//                       height: 50,
+//                       width: 50,
+//                       color: Colors.brown,
+//                   ),
+//                   ),
+//                 Flexible(
+//                   flex: 3,
+//                   child:  Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.blue,
+//                 ),),
+//
+//                 Flexible(child:  Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.deepPurple,
+//                 ),),
+//
+//                 Flexible(child:  Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.black,
+//                 ),),
+//
+//                 Flexible(child:  Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.lime,
+//                 ),),
+//
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+// class RowWidget extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: SafeArea(
+//           top:true,
+//           bottom: true,
+//          child:SizedBox(
+//             height: double.infinity,
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.end,
+//               children: [
+//
+//                 Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.blue,
+//                 ),
+//
+//                 Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.green,
+//                 ),
+//
+//                 Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.black54,
+//                 ),
+//
+//                 Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.black54,
+//                 ),
+//
+//                 Container(
+//                   height: 50,
+//                   width: 50,
+//                   color: Colors.deepOrangeAccent,
+//                 ),
+//
+//             ],
+//           ),
+//         ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+ // class Myapp extends StatelessWidget{
+ //  @override
+ //   Widget build(BuildContext context){        // 위젯을 반환하고 build 이름의 매개변수의 형은 BuildContext이다
+ //    return MaterialApp(
+ //      debugShowCheckedModeBanner: false,
+ //      home:Scaffold(
+ //        body:
+      //   SafeArea(
+      //     top: true,
+      //     bottom: true,
+      //     left: true,
+      //     right: true,
+      //     child:Container(
+      //       color:Colors.red,
+      //       height:300,
+      //       width:300
+      // )
 
         // Center(
         //   child:Container(
@@ -45,7 +229,7 @@ void main() {
             // child: Container(
             //   color: Colors.blue,
             // ),
-          )
+        //  )
 
           // child:Container(
           //   decoration: BoxDecoration(
@@ -122,21 +306,21 @@ void main() {
          //
          // )
        // ),
-      )
-    );
-  }
- }
-class FloatingActionButtonExample extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return MaterialApp(
-      home:Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){ print('click');},
-          child: Text('클릭'),
-        ),
-        body: Container(),
-      )
-    );
-  }
-}
+ //      )
+ //    );
+ //  }
+ // }
+// class FloatingActionButtonExample extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     return MaterialApp(
+//       home:Scaffold(
+//         floatingActionButton: FloatingActionButton(
+//           onPressed: (){ print('click');},
+//           child: Text('클릭'),
+//         ),
+//         body: Container(),
+//       )
+//     );
+//   }
+// }
