@@ -11,8 +11,6 @@ class HomeScreen3 extends StatefulWidget{
 }
 
 
-
-
 class _HomeScreen3State extends State<HomeScreen3>{
   DateTime firstDay = DateTime.now();
 
