@@ -5,31 +5,41 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/screen/home_screen_navigation.dart';
 import 'package:helloworld/const/colors.dart';
 import 'package:helloworld/screen/root_screen.dart';
+import 'package:helloworld/screen/home_screen_playlist.dart';
 
-
-void main() {
+void main(){
   runApp(
-
       MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: backgroundColor,
-        sliderTheme: SliderThemeData(
-          thumbColor: primaryColor,
-          activeTrackColor: primaryColor,
-          inactiveTrackColor: primaryColor.withOpacity(0.3),
-        ),
-
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: primaryColor,
-          unselectedItemColor: secondaryColor,
-          backgroundColor: backgroundColor,
-        )
-      ),
-      home:RootScreen(),
-     )
+        home: HomeScreen5(),
+      )
   );
 }
+
+
+
+// void main() {
+//   runApp(
+//
+//       MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         scaffoldBackgroundColor: backgroundColor,
+//         sliderTheme: SliderThemeData(
+//           thumbColor: primaryColor,
+//           activeTrackColor: primaryColor,
+//           inactiveTrackColor: primaryColor.withOpacity(0.3),
+//         ),
+//
+//         bottomNavigationBarTheme: BottomNavigationBarThemeData(
+//           selectedItemColor: primaryColor,
+//           unselectedItemColor: secondaryColor,
+//           backgroundColor: backgroundColor,
+//         )
+//       ),
+//       home:RootScreen(),
+//      )
+//   );
+// }
 // void main() {
 //   runApp(
 //     MaterialApp(
