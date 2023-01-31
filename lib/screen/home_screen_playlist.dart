@@ -11,8 +11,6 @@ class HomeScreen5 extends StatefulWidget{
   State<HomeScreen5> createState() => _HomeScreen5();
 }
 
-
-
 class _HomeScreen5 extends State<HomeScreen5>{
   XFile? video;
 
@@ -52,23 +50,25 @@ class _HomeScreen5 extends State<HomeScreen5>{
 
   Widget renderVideo(){
     return Center(
-      child: CustomVideoPlayer( video: video!,),
+      child: CustomVideoPlayer( video: video!,
+        onNewVideoPressed: onNewVideoPressed,
+      ),
     );
   }
 }
 
-BoxDecoration getBoxDecoration(){
-  return BoxDecoration(
-    gradient: LinearGradient(
-      begin: Alignment.topCenter,
-      end:Alignment.bottomCenter,
-      colors: [
-        Color(0xFF2A3A7C),
-        Color(0xFF000118),
-      ]
-    )
-  );
-}
+  BoxDecoration getBoxDecoration(){
+    return BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end:Alignment.bottomCenter,
+        colors: [
+          Color(0xFF2A3A7C),
+          Color(0xFF000118),
+        ]
+      )
+    );
+  }
 
 
 class _Logo extends StatelessWidget{
