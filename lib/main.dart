@@ -14,6 +14,7 @@ import 'package:helloworld/screen/home_screen_camera.dart';
 void main(){
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomeScreen6(),
     )
   );
