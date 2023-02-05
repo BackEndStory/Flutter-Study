@@ -9,15 +9,26 @@ import 'package:helloworld/screen/home_screen_playlist.dart';
 import 'package:camera/camera.dart';
 import 'package:helloworld/screen/home_screen_camera.dart';
 import 'package:helloworld/screen/home_screen_location.dart';
+import 'package:helloworld/screen/home_screen_imagecontrol.dart';
 
 void main(){
   runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen7(),
+        home: HomeScreen8(),
       )
   );
 }
+
+
+// void main(){
+//   runApp(
+//       MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         home: HomeScreen7(),
+//       )
+//   );
+// }
 
 // void main(){
 //   runApp(

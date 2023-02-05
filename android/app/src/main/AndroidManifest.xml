@@ -24,7 +24,8 @@
         android:label="helloworld"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
        <meta-data
            android:name="com.google.android.geo.API_KEY"
            android:value="AIzaSyDEPlvGUTbtOntxx385lgtQFgouUoGe6Fo" />
