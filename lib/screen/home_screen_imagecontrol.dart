@@ -90,9 +90,7 @@ class _HomeScreenState extends State<HomeScreen8>{
                 )
             )
         ),
-      ) ;
-
-
+      );
     }else{
       return Center(
         child: TextButton(
