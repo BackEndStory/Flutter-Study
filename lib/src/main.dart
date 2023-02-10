@@ -1,26 +1,41 @@
-import 'package:flutter/material.dart';
+
 // import 'package:helloworld/screen/home_screen.dart';
 // import 'package:helloworld/screen/home_screen_pageView.dart';
 // import 'package:helloworld/screen/u_and_i.dart';
-import 'package:helloworld/screen/home_screen_navigation.dart';
-import 'package:helloworld/const/colors.dart';
-import 'package:helloworld/screen/root_screen.dart';
-import 'package:helloworld/screen/home_screen_playlist.dart';
-import 'package:camera/camera.dart';
-import 'package:helloworld/screen/home_screen_camera.dart';
-import 'package:helloworld/screen/home_screen_location.dart';
-import 'package:helloworld/screen/home_screen_imagecontrol.dart';
-import 'package:helloworld/screen/home_screen_httpdio.dart';
+// import 'package:helloworld/screen/home_screen_navigation.dart';
+// import 'package:helloworld/const/colors.dart';
+// import 'package:helloworld/screen/root_screen.dart';
+// import 'package:helloworld/screen/home_screen_playlist.dart';
+// import 'package:camera/camera.dart';
+// import 'package:helloworld/screen/home_screen_camera.dart';
+// import 'package:helloworld/screen/home_screen_location.dart';
+// import 'package:helloworld/screen/home_screen_imagecontrol.dart';
+// import 'package:helloworld/screen/home_screen_httpdio.dart';
+import 'package:flutter/material.dart';
+import 'package:helloworld/src/View/app.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting();
+
   runApp(
       MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen9(),
-      )
+        home: HomeScreen11()
+          ),
+
   );
 }
+// void main(){
+//   runApp(
+//       MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         home: HomeScreen9(),
+//       )
+//   );
+// }
 
 
 // void main(){
