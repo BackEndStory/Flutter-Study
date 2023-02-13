@@ -3,9 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/src/View/custom-text-field.dart';
 import 'package:helloworld/src/const/colors.dart';
+import 'package:drift/drift.dart' hide Column;
+import 'package:get_it/get_it.dart';
+import 'package:helloworld/src/Model/Repository/local-database.dart';
 
 class ScheduleBottom extends StatefulWidget{
+  final DateTime selectedDate;
+
   const ScheduleBottom({
+    required this.selectedDate,
     Key? key
 }):super(key:key);
 
@@ -84,13 +90,20 @@ class _ScheduleBottomState extends State<ScheduleBottom>{
     );
   }
 
-  void onSavePressed(){
+  void onSavePressed() async {
     if(formKey.currentState!.validate()){
       formKey.currentState!.save();
 
-      print(startTime);
-      print(endTime);
-      print(content);
+     await GetIt.I<LocalDatabase>().createSchedules(
+       SchedulesCompanion(
+              startTime: Value(startTime!),
+              endTime: Value(endTime!),
+              content: Value(content!),
+              date: Value(widget.selectedDate)
+
+    )
+    );
+     Navigator.of(context).pop();
     }
   }
   String? timeValidator(String? val){
