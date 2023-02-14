@@ -13,10 +13,13 @@
 // import 'package:helloworld/screen/home_screen_httpdio.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/src/View/app.dart';
+import 'package:helloworld/src/ViewModel/schudule-provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:helloworld/src/Model/Repository/local-database.dart';
 import 'package:get_it/get_it.dart';
-
+import 'package:helloworld/src/Model/DataSource/remote_datasource.dart';
+import 'package:helloworld/src/Model/Repository/schedule-repository.dart';
+import 'package:provider/provider.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting();
@@ -24,12 +27,15 @@ void main() async{
   final database = LocalDatabase();
   GetIt.I.registerSingleton<LocalDatabase>(database);
 
+  final repository = ScheduleRepository();
+  final scheduleProvider = ScheduleProvider(repository: repository);
   runApp(
-      MaterialApp(
+    ChangeNotifierProvider(create: (_)=> scheduleProvider,
+    child:  MaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeScreen11()
-          ),
-
+    ),
+    )
   );
 }
 // void main(){

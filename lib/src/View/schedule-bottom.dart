@@ -2,10 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:helloworld/src/View/custom-text-field.dart';
+import 'package:helloworld/src/ViewModel/schudule-provider.dart';
 import 'package:helloworld/src/const/colors.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:get_it/get_it.dart';
 import 'package:helloworld/src/Model/Repository/local-database.dart';
+import 'package:helloworld/src/Model/DataSource/remote_datasource.dart';
+import 'package:helloworld/src/Model/Repository/schedule-repository.dart';
+import 'package:provider/provider.dart';
 
 class ScheduleBottom extends StatefulWidget{
   final DateTime selectedDate;
@@ -75,7 +79,7 @@ class _ScheduleBottomState extends State<ScheduleBottom>{
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: onSavePressed,
+                    onPressed: () => onSavePressed(context),
                     style: ElevatedButton.styleFrom(
                       primary: PRIMARY_COLOR,
                     ),
@@ -90,19 +94,13 @@ class _ScheduleBottomState extends State<ScheduleBottom>{
     );
   }
 
-  void onSavePressed() async {
+  void onSavePressed(BuildContext context) async {
     if(formKey.currentState!.validate()){
       formKey.currentState!.save();
+      context.read<ScheduleProvider>().createSchedule(
+          schedule: ScheduleModel(id: 'new_models', content: content!, date: widget.selectedDate, startTime: startTime!, endTime: endTime!),
+      );
 
-     await GetIt.I<LocalDatabase>().createSchedules(
-       SchedulesCompanion(
-              startTime: Value(startTime!),
-              endTime: Value(endTime!),
-              content: Value(content!),
-              date: Value(widget.selectedDate)
-
-    )
-    );
      Navigator.of(context).pop();
     }
   }
