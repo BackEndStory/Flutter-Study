@@ -20,8 +20,13 @@ import 'package:get_it/get_it.dart';
 import 'package:helloworld/src/Model/DataSource/remote_datasource.dart';
 import 'package:helloworld/src/Model/Repository/schedule-repository.dart';
 import 'package:provider/provider.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+
+  MobileAds.instance.initialize();
   await initializeDateFormatting();
 
   final database = LocalDatabase();

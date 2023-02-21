@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/src/View/schedule-bottom.dart';
 import 'package:helloworld/src/ViewModel/schudule-provider.dart';
+import 'package:helloworld/src/banner_ad_widget.dart';
 import 'package:helloworld/src/const/colors.dart';
 import 'package:provider/provider.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:helloworld/src/View/calendar-main.dart';
 import 'package:helloworld/src/View/Schedule.dart';
 import 'package:helloworld/src/View/today-banner.dart';
 import 'package:get_it/get_it.dart';
-import 'package:helloworld/src/Model/Repository/local-database.dart';
+
 
 class HomeScreen11 extends StatelessWidget {
 
@@ -49,8 +49,11 @@ class HomeScreen11 extends StatelessWidget {
               TodayBanner(selectedDate: selectedDate, count: schedules.length),
               SizedBox(height: 8,),
               Expanded(
-                  child:ListView.builder(
+                  child:ListView.separated(
                         itemCount: schedules.length,
+                        separatorBuilder: (context, index){
+                          return BannerAdWidget();
+                        },
                         itemBuilder: (context, index){
                           final schedule = schedules[index];
                           return Dismissible(key: ObjectKey(schedule.id),
